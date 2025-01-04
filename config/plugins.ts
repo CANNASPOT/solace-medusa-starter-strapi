@@ -3,15 +3,15 @@ export default ({ env }) => ({
     config: {
       provider: "aws-s3",
       providerOptions: {
-        rootPath: env("DO_SPACE_PATH"),
-        credentials: {
+        s3Options: {
           accessKeyId: env("DO_SPACE_ACCESS_KEY"),
           secretAccessKey: env("DO_SPACE_SECRET_KEY"),
+          endpoint: env("DO_SPACE_ENDPOINT"),
+          region: env("DO_SPACE_REGION"),
         },
-        region: env("DO_SPACE_REGION"),
-        endpoint: env("DO_SPACE_ENDPOINT"),
-        params: {
-          Bucket: env("DO_SPACE_BUCKET"),
+        s3:{
+          bucket: env("DO_SPACE_BUCKET"),
+          path: env("DO_SPACE_PATH"),
         },
       },
       actionOptions: {
